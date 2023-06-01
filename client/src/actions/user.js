@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setUser } from '../store/loginReducer';
+import { setUser, setUserName } from '../store/loginReducer';
 
 export const registration = async (username, password) => {
     try {
@@ -34,8 +34,8 @@ export const auth = () => {
         try {
             const response = await axios.get(`http://localhost:5000/auth/auth`, {headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}})
             dispatch(setUser(response.data.user))
+            dispatch(setUserName(response.data.user.username))
             localStorage.setItem('token', response.data.token)
-            localStorage.setItem('username', response.data.user.username)
         } catch (e) {
             console.log(e);
             localStorage.removeItem('token')

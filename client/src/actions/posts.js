@@ -10,12 +10,12 @@ export const createPost = async (text, author) => {
     console.log(response.data);
 }
 
-export const deletePost = async (id) => {
-    const response = await axios.delete(`http://localhost:5000/post/deletePost`, { data: { id: id } })
+export const deletePost = async (id, author, username) => {
+    const response = await axios.delete(`http://localhost:5000/post/deletePost`, { data: { id: id, author: author, username: username } })
     console.log(response.data);
 }
 
-export const editPost = async (id, content) => {
-    const response = await axios.put(`http://localhost:5000/post/editPost`, { id, content })
+export const editPost = async (id, author, content, username) => {
+    const response = await axios.put(`http://localhost:5000/post/editPost`, { id, author, content, username })
     console.log(response.data);
 }
