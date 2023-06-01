@@ -37,9 +37,6 @@ const PostsPage = () => {
                 totalPages={Math.ceil(posts.length / itemsPerPage)}
                 onPageChange={handlePageChange}
             />
-            {/* {posts.map((post) => (
-                <PostPageItem key={post._id} post={post} />
-            ))} */}
         </div>
     );
 }
